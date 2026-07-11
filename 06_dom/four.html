@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove Elements</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>Javascript</li>
+        
+    </ul>
+    
+</body>
+<script>
+    function addLang(langName){
+        const li=document.createElement('li');
+        li.innerHTML=`${langName}`
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addLang("python")
+    addLang("typescript")
+    // this above method is a slower method and so we'll use this below method->
+    function addOptiLanguage(langName){
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+    // this is a much better method as we wont have to traverse the whole document 
+    addOptiLanguage('golang');
+    addOptiLanguage('c++');
+    //Edit 
+   const secondlang= document.querySelector("li:nth-child(2)")
+   // secondlang.innerHTML="Mojo" isse kr skte hai but not optimal
+   const newLi=document.createElement('li');
+   newLi.textContent="Mojo";
+   secondlang.replaceWith(newLi);
+   // Edit 2nd method
+    const firstLang=document.querySelector("li:first-child");
+    firstLang.outerHTML='<li> Rust </li>'
+    // remove
+    const lastLang=document.querySelector('li:last-child');
+    lastLang.remove();
+</script>
+
+
+</html>

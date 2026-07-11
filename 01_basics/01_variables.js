@@ -11,3 +11,4 @@ console.log(accountId)
 dont use var because of issue in block scope and functional scope var ki jgh ab let use krte hai
 */
 console.table([accountId,accountEmail,accountCity,accountPass]) 
+// shift+option+down key use krke copy hojata h 
